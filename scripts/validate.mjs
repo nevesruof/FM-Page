@@ -12,8 +12,8 @@ const context={window:{}};vm.createContext(context);vm.runInContext(catalogSourc
 const catalog=context.window.FM_CATALOG;
 assert.equal(catalog.length,71);assert.equal(new Set(catalog.map(c=>c.name)).size,71);
 function section(start,end){return app.slice(app.indexOf(start),app.indexOf(end,app.indexOf(start)));}
-vm.runInContext(section('const strings =','const categories=')+';globalThis.strings=strings;globalThis.guides=guides;',context);
-const {strings,guides}=context;
+vm.runInContext(section('const strings =','const categories=')+';globalThis.strings=strings;globalThis.guides=guides;globalThis.faqs=faqs;',context);
+const {strings,guides,faqs}=context;
 assert.deepEqual(Object.keys(strings.es).sort(),Object.keys(strings.en).sort(),'ES/EN keys must match');
 const attrs=[...html.matchAll(/data-i18n(?:-html|-aria|-title|-placeholder|-alt)?="([^"]+)"/g)].map(m=>m[1]);
 for(const key of attrs)for(const language of ['es','en'])assert.ok(strings[language][key],`Missing ${language} translation: ${key}`);
@@ -41,4 +41,10 @@ vm.runInContext(`const icons={welcome:'door',afk:'moon',invites:'link',events:'g
 for(const language of ['es','en']){context.setTestLanguage(language);for(const c of catalog){context.renderCommand(c);const rendered=els.get('#dialog-content').innerHTML;assert.ok(rendered.includes('id="dialog-title"'));assert.ok(!rendered.includes('undefined'));assert.ok(rendered.includes(c.name));}}
 assert.ok(html.includes('lang="es"'));assert.ok(html.includes('Made By Ake.'));
 const css=fs.readFileSync(path.join(root,'style.css'),'utf8');assert.ok(css.includes('prefers-reduced-motion'));assert.ok(css.includes('@media(max-width:600px)'));
+for(const f of faqs){assert.ok(['members','staff'].includes(f.g));for(const language of ['es','en'])assert.ok(f[language].q&&f[language].a,'FAQ needs question and answer in ES/EN');}
+assert.ok(faqs.length>=12,'Antes de empezar needs enough questions');
+const installTerms=/\.env|sqlite|hosting|DISCORD_GUILD_ID|requirements\.txt|main\.py|pip install|server members intent|message content intent/i;
+const userFacing=JSON.stringify([strings,guides,faqs])+html;
+assert.ok(!installTerms.test(userFacing),'User-facing docs must not include installation or hosting instructions');
+assert.ok(html.includes('data-motion-toggle'),'Motion toggle must exist');
 console.log(`PASS: 71 bilingual commands, 86 parameters, ${new Set(attrs).size} interface translations, search synonyms, 142 detail views, section links, SVG icons and local assets.`);

@@ -4,8 +4,10 @@ Web de documentación del bot de comunidad de FM Society, creado por Ake.
 
 - Español por defecto y traducción completa al inglés.
 - Catálogo de 71 comandos con búsqueda, categorías, parámetros, permisos y ejemplos.
-- Guías de bienvenidas, AFK, invitaciones, AutoMod, sorteos y configuración.
-- Diseño en blanco y negro, adaptado a móvil, con animaciones y opción de movimiento reducido.
+- Guías para miembros y staff: comandos del día a día, bienvenidas, invitaciones y AutoMod.
+- «Antes de empezar»: 15 preguntas frecuentes filtrables por miembros y staff.
+- Diseño en blanco y negro, adaptado a móvil, con animaciones.
+- Interruptor de animaciones (cabecera y pie). Si el sistema pide reducir movimiento, la web arranca en modo calmado (solo fundidos); la preferencia se guarda en el navegador.
 
 ## Uso
 
