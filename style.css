@@ -93,7 +93,7 @@ html[data-motion="calm"] #cursor-ring,html[data-motion="calm"] #click-effects{di
 }
 
 /* ===== Comandos populares y filtro por permiso ===== */
-.popular-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0 0}
+.popular-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:28px 0 0}
 .popular-label{font-size:10px;color:#6c6c6c;margin-right:6px}
 .popular-row button{font:11px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;padding:7px 11px;border:1px solid #2b2b2b;border-radius:6px;color:#b8b8b8;background:#151515;transition:background .25s,color .25s,border-color .25s}
 .popular-row button:hover{background:#202020;color:#fff;border-color:#3b3b3b}
@@ -110,5 +110,7 @@ html[data-motion="calm"] #cursor-ring,html[data-motion="calm"] #click-effects{di
   .results-header{gap:10px}
 }
 
-/* Avatar de ejemplo (foto de Take) */
-img.person-avatar{display:block;object-fit:cover;object-position:50% 40%;aspect-ratio:1/1;background:#111;padding:0}
+/* Discord */
+.icon-button.discord-link{color:#fff;margin-left:0}
+.icon-button.discord-link svg{width:20px;height:20px;fill:#fff;stroke:none;color:#fff}
+@media(max-width:600px){.icon-button.discord-link{width:30px;height:30px}.icon-button.discord-link svg{width:18px;height:18px}}
