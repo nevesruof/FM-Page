@@ -1,6 +1,6 @@
 # FM Society · Documentación
 
-Web de documentación del bot de comunidad de FM Society, creado por iTake & FumandoMari.
+Web de documentación del bot de comunidad de FM Society, creado por Take & FumandoMari.
 
 - Español por defecto y traducción completa al inglés.
 - Catálogo de 71 comandos con búsqueda, categorías, parámetros, permisos y ejemplos.
@@ -42,4 +42,4 @@ node scripts/validate.mjs
 
 Las vistas del bot y el sorteo interactivo son ejemplos de documentación. No conectan con Discord ni participan en sorteos reales.
 
-**Made By iTake & FumandoMari · FM Society**
+**Made By Take & FumandoMari · FM Society**

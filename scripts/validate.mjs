@@ -39,7 +39,7 @@ const els=new Map();
 context.$=selector=>{if(!els.has(selector))els.set(selector,{innerHTML:'',addEventListener(){}});return els.get(selector);};
 vm.runInContext(`const icons={welcome:'door',afk:'moon',invites:'link',events:'gift',automod:'shield',moderation:'sliders',utility:'code',fun:'dice',community:'users'};`+section('const escape=','function feedback(').replace(/const normalize=.*?;\n/s,'')+section('function renderCommand(','function openCommand(')+`;globalThis.renderCommand=renderCommand;`,context);
 for(const language of ['es','en']){context.setTestLanguage(language);for(const c of catalog){context.renderCommand(c);const rendered=els.get('#dialog-content').innerHTML;assert.ok(rendered.includes('id="dialog-title"'));assert.ok(!rendered.includes('undefined'));assert.ok(rendered.includes(c.name));}}
-assert.ok(html.includes('lang="es"'));assert.ok(html.includes('Made By iTake &amp; FumandoMari.'));
+assert.ok(html.includes('lang="es"'));assert.ok(html.includes('Made By Take &amp; FumandoMari.'));
 const css=fs.readFileSync(path.join(root,'style.css'),'utf8');assert.ok(css.includes('prefers-reduced-motion'));assert.ok(css.includes('@media(max-width:600px)'));
 for(const f of faqs){assert.ok(['members','staff'].includes(f.g));for(const language of ['es','en'])assert.ok(f[language].q&&f[language].a,'FAQ needs question and answer in ES/EN');}
 assert.ok(faqs.length>=12,'Antes de empezar needs enough questions');
